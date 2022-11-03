@@ -4,33 +4,48 @@
         <router-link to="/users-list" class="nav-btn">Users List</router-link> <br><br>
         <router-link to="/add-user" class="nav-btn">Add New User</router-link> <br><br>
         <router-link to="/profile" v-if="getLogState" class="nav-btn">Profile</router-link>
-        <span v-if="getLogState" class="nav-btn" @click="logout">LogOut</span>
-        <router-link to="/login" v-if="!getLogState" class="nav-btn">LogIn</router-link>
-        
+        <!-- <span v-if="loggedIn" class="nav-btn" @click="logout">LogOut</span> -->
+        <!-- <span class="nav-btn" @click="logoutAction(false)">LogOut</span> -->
+        <span class="nav-btn" @click="logoutAction" v-if="getLogState">LogOut</span>
+        <!-- <router-link to="/login" v-if="!loggedIn" class="nav-btn">LogIn</router-link> -->
+        <router-link to="/login" class="nav-btn" v-if="!getLogState">LogIn</router-link>
     </div>
 </template>
 
 <script>
     import {mapGetters,mapActions} from 'vuex'
+    console.log(document.cookie)
+    
     export default {
         name: 'NavBar',
         data(){
             return{
-                userLogIn: '',
+                userLoggedIn: false,
             }
         },
         methods:{
-            ...mapActions(["logOutAction"]),
-            logout(){
-                localStorage.clear()
-                this.$router.push({name:'HomeComponent'})
-                this.logOutAction()
-            }
+            ...mapActions(["logoutAction"]),
         },
         computed: mapGetters(["getLogState"]),
-        beforeMount(){
-            this.userLogIn = localStorage.userLogIn
-        }
+        // watch () {
+        //     userLoggedIn {
+
+        //     }
+        //     this.loggedIn = true
+        // },
+        // beforeMount(){
+        //     this.userLogIn = localStorage.userLogIn
+        // },
+        // created(){
+        //     const authCookie = this.$cookies.get("Authorization")
+        //     console.log(authCookie)    
+        //     if (authCookie) {
+        //         this.setLoggedIn()
+        //     }
+        //     else{
+        //         this.setLoggedOut()
+        //     }
+        // }
     }
 </script>
 

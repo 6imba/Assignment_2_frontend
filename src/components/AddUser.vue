@@ -43,7 +43,7 @@
         // this.password = ''
         // this.address = ''
         // this.gender = ''
-      }
+      },
     },
   }
 </script>

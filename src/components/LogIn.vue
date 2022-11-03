@@ -29,6 +29,8 @@
             ...mapActions(["changeLogAction","logInAction"]),
             async onSubmit(){
                 this.logInAction({email: this.email, password: this.password})
+                this.email = ""
+                this.password = ""
             }
         },
         mounted(){

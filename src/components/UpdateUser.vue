@@ -45,7 +45,7 @@
     async mounted(){
       const config = {
           method: 'get',
-          url: `http://localhost:8000/user/${this.$route.params.id}`,
+          url: `http://localhost:8010/api/user/${this.$route.params.id}`,
       }
       const res = await axios(config)
       this.id = res.data._id

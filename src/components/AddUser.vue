@@ -2,15 +2,15 @@
     <h1>Add User</h1>
     <div class="add-user">
       <form action="" @submit.prevent="onSubmit">
-        <input type="text" id="name" class="field" placeholder="Enter Name" v-model="name"><br>
-        <input type="email" id="email" class="field" placeholder="Enter Email" v-model="email"><br>
-        <input type="password" id="password" class="field" placeholder="Enter Password" v-model="password"><br>
-        <input type="text" id="address" class="field" placeholder="Enter Address" v-model="address"><br>
+        <input type="text" id="name" class="field" placeholder="Enter Name" v-model="name" required><br>
+        <input type="email" id="email" class="field" placeholder="Enter Email" v-model="email" required><br>
+        <input type="password" id="password" class="field" placeholder="Enter Password" v-model="password" required><br>
+        <input type="text" id="address" class="field" placeholder="Enter Address" v-model="address" required><br>
         <div>
           <span> <b>Gender</b> </span>
-          <input type="radio" name="gender" value="male" v-model="gender">
+          <input type="radio" name="gender" value="male" v-model="gender" required>
           <label for="male">male</label>
-          <input type="radio" name="gender" value="female" v-model="gender">
+          <input type="radio" name="gender" value="female" v-model="gender" required>
           <label for="female">female</label>
         </div>
         <br>
@@ -38,11 +38,11 @@
       onSubmit(){
         const newUser = { name: this.name, email: this.email, password: this.password, address: this.address, gender: this.gender}
         this.addUserAction(newUser)
-        // this.name = ''
-        // this.email = ''
-        // this.password = ''
-        // this.address = ''
-        // this.gender = ''
+        this.name = ''
+        this.email = ''
+        this.password = ''
+        this.address = ''
+        this.gender = ''
       },
     },
   }

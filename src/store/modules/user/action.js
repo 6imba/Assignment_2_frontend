@@ -6,34 +6,33 @@ const actions = {
     async setUsersStateAction({commit}){
         // check if user state exists or not
         try{
-            let config = {method: 'get', url: 'api/user'}
+            let config = {method: 'get', url: process.env.VUE_APP_API_URL+'/api/user'}
             let response = await axios(config)
             commit("setUsersStateMutation", response.data)
         }
         catch(error){
-            console.log(error.response.data.message)
-            alert(error.response.data.message)
+            console.log(error.response?.data.message)
+            alert(error.response?.data.message)
             commit("setUsersStateMutation", [])
         }
     },
     async addUserAction({commit},newUser){
         try{
-            let config = {method: 'post', url: '/api/user', data: newUser}
+            let config = {method: 'post', url: process.env.VUE_APP_API_URL+'/api/user', data: newUser}
             let response = await axios(config)
-            alert(response.data)
-            console.log(response.data)
+            if(response.data.success){
+                alert("New user added successfully!")
+            }
             commit("addNewUserMutation", response.data)
-            router.push({ name: 'UsersList' })
+            // router.push({ name: 'UsersList' })
         }
         catch(err){
-            // console.log(err)
-            // console.log(err.message)
-            // console.log(err.response.data.message)
-            alert(err.response.data.message)
+            console.log(err.response.data.message)
+            alert("Sorry, You are not authorized to perform an action!")
         }
     },
     async updateUserAction({commit}, params){
-        let config = {method: 'put', url: `/api/user/${params[0]}`, data: params[1]}
+        let config = {method: 'put', url: `${process.env.VUE_APP_API_URL}/api/user/${params[0]}`, data: params[1]}
         let response = await axios(config)
         commit("updateUserMutation", response.data)
         router.push({ name: 'UsersList' })
@@ -52,7 +51,7 @@ const actions = {
     },
     async logInAction({commit}, credential){
         try{
-            let config = {method: 'post', url: '/api/user/login', data: credential}
+            let config = {method: 'post', url: process.env.VUE_APP_API_URL+'/api/user/login', data: credential}
             let response = await axios(config)
             console.log(response.data)
             // commit("changeLogStateMutation")
@@ -67,7 +66,7 @@ const actions = {
     },
     async logoutAction({commit}){
         try{
-            let config = {method: 'get', url: '/api/user/logout'}
+            let config = {method: 'get', url: process.env.VUE_APP_API_URL+'/api/user/logout'}
             await axios(config)
             console.log("Logout action!")
             alert("Logout action!")

@@ -53,17 +53,17 @@
     .navbar{
         display: flex;
         list-style: none;
-        /* background-color: lightblue; */
+        background-color: rgb(220, 220, 220);
         justify-content: center;
         padding: 10px;
     }
     .navbar .nav-btn{
         margin-right: 20px;
         padding: 5px;
-        text-shadow: 4px 3px 3px grey;
+        text-shadow: 3px 1px 3px grey;
         text-decoration: none;
         color: black;
-        font-size: 20px;
+        font-size: 25px;
     }
     .navbar .nav-btn:hover{
         box-shadow: 0px 1px 4px 2px black;

@@ -6,12 +6,8 @@ const mutations = {
         // console.log("user state: ",state.users)
     },
     addNewUserMutation: (state, newUser) => {
-        console.log(' Add New User Mutation 1-------------------')
-        console.log(state)
-        console.log(state.user)
-        console.log(newUser)
         state.users.push(newUser)
-        console.log(' Add New User Mutation 2-------------------')
+        console.log('Mutate user list state by pushing new user.')
     },
     removeUserMutation: (state, userId) => {
         state.users =  state.users.filter( user => user._id != userId )

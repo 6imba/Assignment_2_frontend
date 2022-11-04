@@ -4,7 +4,6 @@
       <form action="" @submit.prevent="onSubmit">
         <input type="text" id="name" class="field" placeholder="Enter Name" v-model="name"><br>
         <input type="email" id="email" class="field" placeholder="Enter Email" v-model="email"><br>
-        <input type="password" id="password" class="field" placeholder="Enter Password" v-model="password"><br>
         <input type="text" id="address" class="field" placeholder="Enter Address" v-model="address"><br>
         <div>
           <span> <b>Gender</b> </span>
@@ -30,7 +29,6 @@
         id: '',
         name: '',
         email: '',
-        password: '',
         address: '',
         gender: ''
       }
@@ -38,7 +36,7 @@
     methods:{
       ...mapActions(["addUserAction","updateUserAction"]),
       onSubmit(){
-        const updateUser = { name: this.name, email: this.email, password: this.password, address: this.address, gender: this.gender}
+        const updateUser = { name: this.name, email: this.email, address: this.address, gender: this.gender}
         this.updateUserAction([this.id,updateUser])
       }
     },
@@ -51,7 +49,6 @@
       this.id = res.data._id
       this.name = res.data.name
       this.email = res.data.email
-      this.password = res.data.password
       this.address = res.data.address
       this.gender = res.data.gender
       // console.log('----------------------------------------------------------------------------------------')

@@ -35,6 +35,7 @@ const actions = {
         let config = {method: 'put', url: `${process.env.VUE_APP_API_URL}/api/user/${params[0]}`, data: params[1]}
         let response = await axios(config)
         commit("updateUserMutation", response.data)
+        alert("User updated!")
         router.push({ name: 'UsersList' })
     },
     async deleteUserAction({commit},userId){

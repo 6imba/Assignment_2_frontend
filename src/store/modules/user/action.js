@@ -39,7 +39,7 @@ const actions = {
     },
     async deleteUserAction({commit},userId){
         try{
-            let config = {method: 'delete', url: `/api/user/${userId}`}
+            let config = {method: 'delete', url: `${process.env.VUE_APP_API_URL}/api/user/${userId}`}
             await axios(config)
             commit("removeUserMutation", userId)
             alert("User deleted!")

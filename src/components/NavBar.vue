@@ -14,7 +14,6 @@
 
 <script>
     import {mapGetters,mapActions} from 'vuex'
-    console.log(document.cookie)
     
     export default {
         name: 'NavBar',

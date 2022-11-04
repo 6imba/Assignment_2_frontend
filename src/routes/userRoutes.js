@@ -1,13 +1,11 @@
-import { createWebHistory,createRouter } from "vue-router";
+import Home from '../components/Home.vue'
+import UsersList from '../components/UsersList.vue'
+import AddUser from '../components/AddUser.vue'
+import UpdateUser from '../components/UpdateUser.vue'
+import LogIn from '../components/LogIn.vue'
+import ProfilePage from '../components/ProfilePage.vue'
 
-import Home from './components/Home.vue'
-import UsersList from './components/UsersList.vue'
-import AddUser from './components/AddUser.vue'
-import UpdateUser from './components/UpdateUser.vue'
-import LogIn from './components/LogIn.vue'
-import ProfilePage from './components/ProfilePage.vue'
-
-const routes = [
+const userRoutes = [
     {
         name: 'HomeComponent',
         path: '/',
@@ -40,11 +38,4 @@ const routes = [
     },
 ]
 
-
-const router = createRouter({
-    history: createWebHistory(),
-    routes
-})
-
-
-export default router;
+export default userRoutes;

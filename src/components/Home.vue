@@ -1,5 +1,5 @@
 <template>
-  <h1>Welcome to User Management</h1>
+  <h2>Welcome to User Management</h2>
 </template>
 
 <script>
@@ -11,7 +11,7 @@
 </script>
 
 <style scoped>
-h1{
+h2{
   margin-top: 150px;
 }
 </style>

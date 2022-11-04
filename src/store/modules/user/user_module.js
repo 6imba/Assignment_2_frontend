@@ -3,7 +3,7 @@ import mutations from './mutation.js'
 
 const state = {
     users: null,
-    log: false
+    log: document.cookie?true:false
 }
 
 const getters = {

@@ -12,7 +12,7 @@ const actions = {
         }
         catch(error){
             console.log(error.response?.data.message)
-            alert(error.response?.data.message)
+            alert(error)
             commit("setUsersStateMutation", [])
         }
     },
@@ -35,11 +35,12 @@ const actions = {
         let config = {method: 'put', url: `${process.env.VUE_APP_API_URL}/api/user/${params[0]}`, data: params[1]}
         let response = await axios(config)
         commit("updateUserMutation", response.data)
+        alert("User updated!")
         router.push({ name: 'UsersList' })
     },
     async deleteUserAction({commit},userId){
         try{
-            let config = {method: 'delete', url: `/api/user/${userId}`}
+            let config = {method: 'delete', url: `${process.env.VUE_APP_API_URL}/api/user/${userId}`}
             await axios(config)
             commit("removeUserMutation", userId)
             alert("User deleted!")
